@@ -3,6 +3,7 @@ var cryptosquare = function(phrase) {
     var squareSize = Math.ceil(Math.sqrt(phrase.length));
     var square = new Array(squareSize);
     var output = "";
+    
     // store the message in a 2D array
     for(var x = 0; x < squareSize; x++) {
         square[x] = new Array(squareSize)
@@ -19,6 +20,7 @@ var cryptosquare = function(phrase) {
         }
     }
 
+    // format the output in groups of five characters
     var formatted_output = ""
     for(var i = 0; i < output.length; i++) {
         formatted_output = formatted_output.concat(output.charAt(i));
