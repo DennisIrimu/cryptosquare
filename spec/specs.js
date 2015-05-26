@@ -11,5 +11,4 @@ describe('crytosquare', function() {
     it("Returns an encrypted message given a phase of any length.", function() {
         expect(cryptosquare('the based god')).to.equal('taghs oeedb d')
     });
-
 });

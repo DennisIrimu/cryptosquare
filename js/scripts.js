@@ -1,9 +1,11 @@
+var square;
+var squareSize;
 var cryptosquare = function(phrase) {
-    phrase = phrase.replace(/\s+/g, '');
-    var squareSize = Math.ceil(Math.sqrt(phrase.length));
-    var square = new Array(squareSize);
+    var phrase = phrase.replace(/\s+/g, '');
+    squareSize = Math.ceil(Math.sqrt(phrase.length));
+    square = new Array(squareSize);
     var output = "";
-    
+
     // store the message in a 2D array
     for(var x = 0; x < squareSize; x++) {
         square[x] = new Array(squareSize)
@@ -34,6 +36,7 @@ var cryptosquare = function(phrase) {
 };
 
 $(document).ready(function() {
+debugger;
     $("form#cryptosquare").submit(function(event) {
         var input = ($("input#input-string").val());
         var result = cryptosquare(input);
@@ -42,5 +45,17 @@ $(document).ready(function() {
 
         $("#result").show();
         event.preventDefault();
+
+        html_to_prepend = ""
+        for(var y = 0; y < squareSize; y++) {
+            html_to_prepend = html_to_prepend.concat("<tr>");
+            for(var x = 0; x < squareSize; x++) {
+                html_to_prepend = html_to_prepend.concat("<td>" + square[x][y] + "</td>");
+            }
+            html_to_prepend = html_to_prepend.concat("</tr>");
+        }
+        $("table#output-table").prepend(html_to_prepend);
+
     });
+
 });
