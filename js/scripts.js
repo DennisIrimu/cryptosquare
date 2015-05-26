@@ -1,5 +1,6 @@
 var cryptosquare = function(phrase) {
-    var squareSize = Math.sqrt(phrase.length);
+    phrase = phrase.replace(/\s+/g, '');
+    var squareSize = Math.ceil(Math.sqrt(phrase.length));
     var square = new Array(squareSize);
     var output = "";
     // store the message in a 2D array
@@ -18,6 +19,14 @@ var cryptosquare = function(phrase) {
         }
     }
 
-    return output
+    var formatted_output = ""
+    for(var i = 0; i < output.length; i++) {
+        formatted_output = formatted_output.concat(output.charAt(i));
+        if((i + 1) % 5 === 0) {
+            formatted_output = formatted_output.concat(" ");
+        }
+    }
+
+    return formatted_output
 
 };
