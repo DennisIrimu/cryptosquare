@@ -30,3 +30,15 @@ var cryptosquare = function(phrase) {
     return formatted_output
 
 };
+
+$(document).ready(function() {
+    $("form#cryptosquare").submit(function(event) {
+        var input = ($("input#input-string").val());
+        var result = cryptosquare(input);
+
+        $(".output").text(result);
+
+        $("#result").show();
+        event.preventDefault();
+    });
+});
