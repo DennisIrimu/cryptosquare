@@ -36,23 +36,27 @@ var cryptosquare = function(phrase) {
 };
 
 $(document).ready(function() {
-debugger;
     $("form#cryptosquare").submit(function(event) {
         var input = ($("input#input-string").val());
-        var result = cryptosquare(input);
+        var encrypted_input = cryptosquare(input);
+        input = input.replace(/\s+/g, '');
 
-        $(".output").text(result);
+        $(".output").text(encrypted_input);
 
         $("#result").show();
         event.preventDefault();
 
-        html_to_prepend = ""
+        var counter = 0;
+        var html_to_prepend = "";
         for(var y = 0; y < squareSize; y++) {
-            html_to_prepend = html_to_prepend.concat("<tr>");
-            for(var x = 0; x < squareSize; x++) {
-                html_to_prepend = html_to_prepend.concat("<td>" + square[x][y] + "</td>");
+            if(counter <= input.length) {
+                html_to_prepend = html_to_prepend.concat("<tr>");
+                for(var x = 0; x < squareSize; x++) {
+                    html_to_prepend = html_to_prepend.concat("<td>" + square[x][y].toUpperCase() + "</td>");
+                    counter++;
+                }
+                html_to_prepend = html_to_prepend.concat("</tr>");
             }
-            html_to_prepend = html_to_prepend.concat("</tr>");
         }
         $("table#output-table").prepend(html_to_prepend);
 
