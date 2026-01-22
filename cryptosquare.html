@@ -8,8 +8,18 @@
         <title>Cryptosquare</title>
     </head>
     <body>
-        <div class="container">
+        <div class="container page-wrap">
             <h1>Cryptosquare</h1>
+            <p class="lead">
+                This app removes spaces from your message, places the characters into a square,
+                reads the square column by column, and formats the encrypted output in groups of
+                five characters.
+            </p>
+            <ul class="description-list">
+                <li>Spaces are removed before encryption.</li>
+                <li>The square size is the ceiling of the square root of the message length.</li>
+                <li>The encrypted message is grouped in blocks of five characters.</li>
+            </ul>
                 <form id="cryptosquare">
                     <div class="form-group">
                         <label for="input-string">Insert a Message:</label>
@@ -22,8 +32,13 @@
             <div id="result">
                 <p><span class="output">Your cryptosquare is: </span> </p>
             </div>
-            <table id="output-table" class="table table-bordered"> </table>
+            <table id="output-table" class="table table-bordered output-table"> </table>
 
         </div>
+        <footer class="footer">
+            <div class="container">
+                <p>Made by Dennis</p>
+            </div>
+        </footer>
     </body>
 </html>
